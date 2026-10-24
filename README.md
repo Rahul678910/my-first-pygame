@@ -53,7 +53,7 @@ Simply double-click `run_game.bat` inside the folder!
 ## 🧬 Architectural Overview
 
 ```
-attame/
+your-file/
 ├── main.py          # Game lifecycle, window management, event routing, 60 FPS clock
 ├── game.py          # Core game engine, wave management, polygon cycle detection, combat
 ├── entities.py      # Player (Lumina), Anchors, Strands, Resonance Fields, Void Entities & Boss
