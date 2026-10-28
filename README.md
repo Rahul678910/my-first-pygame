@@ -1,73 +1,93 @@
-# ✦ CHROMA-STRAND: HARMONIC VOID ✦
-### *An Acoustic-Kinetic Celestial Weaving Odyssey*
+# 🗡️ Dungeon Crawler
 
-A groundbreaking, never-before-seen arcade physics game built in Python & Pygame.
+A procedurally generated dungeon crawler built with Python and Pygame. No external assets — everything is drawn with shapes and colours.
 
----
-
-## 🌟 The Vision: Why It Has Never Been Seen Before
-
-Most action/arcade games rely on shooting bullets or jumping across platforms. **Chroma-Strand** introduces an entirely new genre: **Acoustic-Kinetic String Weaving**.
-
-You play as **Lumina**, an ethereal photon needle weaving living harmonic threads across ancient cosmic quantum prisms (**Resonance Anchors**):
-
-1. **Physical Elastic Light Strands**: Every strand you weave acts as an elastic cello/harp string simulated with physical harmonic oscillation.
-2. **Procedural Pentatonic Synthesis (Real-Time Audio)**: Zero external audio files! When strings are plucked or cut, a real-time mathematical synthesizer produces celestial pentatonic harp tones (A3 to C6) tuned dynamically to each string's physical length.
-3. **Kinetic Bowstring Slingshotting**: Tether Lumina to an anchor, pull back to build elastic potential energy ($E = \frac{1}{2} k x^2$), and release to launch at relativistic speed in **Hyper-Cleave Mode**, slicing through Void swarms.
-4. **Resonance Field Purification (Geometric Enclosure)**: Weave 3 or more anchors into a closed polygon (triangles, quads). The enclosed interior erupts into a shimmering harmonic resonance field, purifying all trapped void entities into glowing golden **Star Motes**.
-5. **Overdrive Supernova**: Absorb Star Motes to fill your resonance gauge to 100%, then trigger a slow-motion celestial supernova that detonates continuous shockwaves.
-6. **Dynamic Boss Anomaly (Singularity Core)**: At Wave 5, face the colossal rotating hyper-cube with orbiting shield nodes and spiral anti-resonance barrages.
+![Gameplay GIF placeholder](docs/gameplay.gif)
 
 ---
 
-## 🎮 Controls
+## Features
 
-| Action | Control | Description |
-| :--- | :--- | :--- |
-| **Move Lumina** | `W, A, S, D` or `Arrow Keys` | Smooth inertial flight through cosmic space |
-| **Tether to Anchor** | `Left Click` on an Anchor | Attaches Lumina to the anchor with an elastic band |
-| **Slingshot Launch** | `Pull Back & Release Left Click` or `Spacebar` / `Right Click` | Releases tether with explosive kinetic speed + Hyper-Cleave invulnerability |
-| **Weave Strand** | `Click & Drag` between 2 Anchors | Connects two anchors with a vibrating acoustic light strand |
-| **Harmonic Pulse Strum** | `Spacebar` or `Right Click` (untethered) | Plucks all nearby strands, emitting an acoustic stun shockwave |
-| **Overdrive Supernova** | `F` (when meter is 100%) | Triggers screen-clearing invulnerable slow-mo supernova |
-| **Fullscreen** | `F11` | Toggles borderless fullscreen mode |
-| **Toggle Music** | `M` | Mutes or unmutes procedural ambient music |
-| **Restart (Game Over)** | `R` | Instantly restarts a fresh cosmic run |
-| **Menu / Pause** | `ESC` | Returns to main menu |
+- 🗺️ **Procedural generation** — random rooms and L-shaped corridors, new layout every run
+- 🧍 **Player** — top-down WASD/arrow movement, melee + ranged attack, health bar
+- 👾 **Enemies** — 3 types (Chaser, Patrol, Shooter) with simple AI
+- 💎 **Loot** — potions, weapons, coins drop from enemies and chests
+- 🎒 **Inventory** — grid UI toggled with `I`, use/equip items
+- 🗺️ **Minimap** — explored rooms, player position, exit marker; toggle with `M`
+- 🌫️ **Fog of war** — only the area around the player is illuminated
+- 💥 **Juice** — screen shake on hits, particle effects, glowing loot & stairs
+- 🏆 **Best floor** saved to `best_floor.txt` across sessions
 
 ---
 
-## 🚀 How to Run the Game
+## Controls
 
-### Method 1: Double-Click Launcher
-Simply double-click `run_game.bat` inside the folder!
+| Key | Action |
+|-----|--------|
+| `WASD` / `↑↓←→` | Move |
+| `Space` | Melee attack |
+| `F` | Ranged attack |
+| `I` | Toggle inventory |
+| `M` | Toggle minimap |
+| `R` | New dungeon (Phase 1: regenerate) |
+| `ESC` | Quit |
 
-### Method 2: Command Line
+---
+
+## Install & Run
+
 ```bash
-.venv\Scripts\python.exe main.py
+# 1. Clone
+git clone https://github.com/your-username/dungeon-crawler.git
+cd dungeon-crawler
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Run
+python main.py
 ```
-*(Or `python main.py` if python with pygame-ce and numpy is in your PATH)*
+
+Requires **Python 3.9+** and **Pygame 2.1+**.
 
 ---
 
-## 🧬 Architectural Overview
+## Project Structure
 
 ```
-your-file/
-├── main.py          # Game lifecycle, window management, event routing, 60 FPS clock
-├── game.py          # Core game engine, wave management, polygon cycle detection, combat
-├── entities.py      # Player (Lumina), Anchors, Strands, Resonance Fields, Void Entities & Boss
-├── physics.py       # Harmonic vibration differential equations, tension spring math, ray-polygon tests
-├── audio_synth.py   # Pure NumPy procedural audio synthesizer (12 harp notes, sfx, ambient pads)
-├── visuals.py       # Particle systems, additive glow cache, camera shake, starfield parallax
-├── ui.py            # Futuristic HUD, live 12-band frequency equalizer, minimap radar, menus
-└── run_game.bat     # One-click Windows runner
+dungeon-crawler/
+├── main.py          # Entry point, game loop, camera, rendering
+├── dungeon.py       # Procedural generation (rooms, corridors, doors, stairs)
+├── entities.py      # Player, Enemy classes and AI
+├── inventory.py     # Inventory grid, item use/equip logic
+├── minimap.py       # Minimap rendering and fog-of-war tracking
+├── settings.py      # All constants, colours, tunable parameters
+├── tests/
+│   └── test_dungeon.py   # Pytest tests for dungeon generation & inventory
+├── requirements.txt
+├── .gitignore
+└── LICENSE
 ```
 
 ---
 
-## 🎨 Visual & Audio Highlights
-- **Additive Blending Neon Glow**: Layered soft radial glows for high-contrast cyberpunk/celestial aesthetic.
-- **Physical Sine-Wave Displacements**: Strings realistically vibrate and ripple upon contact.
-- **Dynamic 12-Band Audio Visualizer**: Equalizer at the bottom-right reacting to musical frequencies in real time.
-- **100% Asset-Free**: No downloaded MP3s, PNGs, or dependencies beyond `pygame-ce` and `numpy`.
+## Running Tests
+
+```bash
+pytest tests/ -v
+```
+
+---
+
+## Roadmap
+
+- [x] Phase 1 — Dungeon generation + render loop
+- [ ] Phase 2 — Player & enemy entities with AI
+- [ ] Phase 3 — Inventory, loot, minimap, fog of war
+- [ ] Phase 4 — Menus, game-over, floor scaling, particles, screen shake
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
